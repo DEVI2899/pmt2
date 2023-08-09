@@ -4,6 +4,8 @@ import 'package:employee_details/Screens/logout.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+import 'csvfileupload.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,8 +23,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home :const Homepage(),
-    //  home : const Logout(),
+      // home :const Homepage(),
+    // home : const Logout(),
+      home : csvfile(),
       debugShowCheckedModeBanner: false,
     );
   }

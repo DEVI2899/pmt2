@@ -4,6 +4,8 @@ import 'dart:async'show Future;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'show rootBundle;
 
+import 'Models/EmployeeModel.dart';
+
 class csvfile extends StatefulWidget {
   const csvfile({Key? key}) : super(key: key);
 
@@ -21,7 +23,7 @@ class _csvfileState extends State<csvfile> {
           children: [
             ElevatedButton(onPressed: ExportData, child: Text('Export')),
             ElevatedButton(onPressed: uploadData, child: Text('upload')),
-
+           // ElevatedButton(onPressed: Data, child: const Text('Customid')),
           ],
         ),
       ),
@@ -70,6 +72,17 @@ class _csvfileState extends State<csvfile> {
 
     }
   }
+
+   void Data(){
+     final CollectionReference postsRef = FirebaseFirestore.instance.collection('newtrainees').doc('project').collection('project2');
+
+     var postID = 1;
+
+     EmployeeModel post = new EmployeeModel(, "title", "content");
+     Map<String, dynamic> postData = post.toJson();
+     await postsRef.doc(postID).set(postData);
+   }
+
 
   }
 

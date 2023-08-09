@@ -3,9 +3,6 @@ import 'package:employee_details/Dashboard/Add_details.dart';
 import 'package:employee_details/Dashboard/Newtrainees.dart';
 import 'package:employee_details/Dashboard/update_details.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-
 
 class Project1 extends StatefulWidget {
   const Project1({Key? key}) : super(key: key);
@@ -125,13 +122,13 @@ class _Project1State extends State<Project1> {
                     ),
                     trailing: GestureDetector(
                         onTap: () {
-                        //  print(document.id);
-                          Get.to(() =>update_details(data:data, ref: ref) ,
-                          arguments: [
-                            data = data, ref = ref
-                          ]);
-                          // Navigator.pushReplacement(context, MaterialPageRoute(
-                          //     builder: (BuildContext context) => update_details(data:data, ref: ref)));
+                        // //  print(document.id);
+                        //   Get.to(() =>update_details(data:data, ref: ref) ,
+                        //   arguments: [
+                        //     data = data, ref = ref
+                        //   ]);
+                          Navigator.pushReplacement(context, MaterialPageRoute(
+                              builder: (BuildContext context) => update_details(data:data, ref: ref)));
                           },
                         child:  Image(
                           image: const AssetImage('assets/images/icon.png'),

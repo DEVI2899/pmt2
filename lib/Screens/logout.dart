@@ -90,7 +90,7 @@ class _LogoutState extends State<Logout> {
               print(filename);
             },
                 child: const Text('Image upload Firebase Storage')),
-            ElevatedButton(onPressed: (){}, child: Text(''))
+            ElevatedButton(onPressed: (){}, child: const Text(''))
           ],
         ),
       ),
