@@ -14,7 +14,7 @@ class Project1 extends StatefulWidget {
 class _Project1State extends State<Project1> {
 
   final Stream<QuerySnapshot> usersStream = FirebaseFirestore.instance.
-                  collection('newtrainees').doc('project').collection('project1').snapshots();
+                  collection('new trainees').doc('project').collection('project1').snapshots();
 
   CollectionReference ref = FirebaseFirestore.instance
       .collection('newtrainees')
@@ -68,7 +68,7 @@ class _Project1State extends State<Project1> {
       appBar: AppBar(
         centerTitle: true,
         leading:IconButton( onPressed: () {
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => const Newtrainee()));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Newtrainee(ref: ref)));
         }, icon: const Icon(Icons.arrow_back ,color: Color(0xff080808),) ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -139,8 +139,6 @@ class _Project1State extends State<Project1> {
                     title: Text("${data['Name']}",style: TextStyle(color: const Color(0xff080808),fontSize: Height/35,fontWeight: FontWeight.w500),),
                     subtitle: Text("${data['Empid']}",style: TextStyle(color: const Color(0xff646965),fontSize: Height/35),)
                   ),
-
-
                 );
 
               }).toList(),

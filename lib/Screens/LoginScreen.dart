@@ -36,15 +36,15 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Padding(
                   padding: EdgeInsets.only(top: Height/25),
-                  child: Image(image: AssetImage('assets/images/Login.png')),
+                  child: const Image(image: AssetImage('assets/images/Login.png')),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: Height/70.5),
-                  child:  Text('Welcome Back !', style: TextStyle(color: Color(0xff080808), fontWeight: FontWeight.bold, fontSize: Height/22),),
+                  child:  Text('Welcome Back !', style: TextStyle(color: const Color(0xff080808), fontWeight: FontWeight.bold, fontSize: Height/22),),
                 ),
                 Padding(
                   padding:EdgeInsets.only(top:Height/90.5),
-                  child: Text("Login into your account",style: TextStyle(color:Color(0xff1643f7),fontSize: Width/25),),
+                  child: Text("Login into your account",style: TextStyle(color:const Color(0xff1643f7),fontSize: Width/25),),
                 ),
                 Padding(
                   padding:EdgeInsets.only(top: Height/55,right:Width/ 2.1),
@@ -70,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                      decoration: InputDecoration(
                        filled: true,
                       //errorText: 'enter the user name',
-                    fillColor: Color(0xffffffff),
+                    fillColor: const Color(0xffffffff),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(Height/70),
                     ),
@@ -111,11 +111,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       decoration:  InputDecoration(
                         //errorText: 'Enter password',
                         filled: true,
-                        fillColor: Color(0xffffffff),
+                        fillColor: const Color(0xffffffff),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(Height/70),
                         ),
-                        suffixIcon: Icon(
+                        suffixIcon: const Icon(
                           Icons.lock_outline,color: Color(0xff080808),
                         ),
                       ),
@@ -126,15 +126,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: EdgeInsets.only(top:Height/50),
                   child: Material(
                     elevation: 5,
-                    color: Color(0xff1643f7),
+                    color: const Color(0xff1643f7),
                     borderRadius: BorderRadius.circular(Height/70,),
                     child: SizedBox(height: Height/20,width: Width/3,
                       child: MaterialButton(
                       onPressed: (){
                           Login(UserNameController.text, PasswordController.text);
-
-
-                      }, child: Text('LOGIN' ,style: TextStyle(color: Color(0xffffffff), fontWeight: FontWeight.bold),),),
+                      }, child: const Text('LOGIN' ,style: TextStyle(color: Color(0xffffffff), fontWeight: FontWeight.bold),),),
                     ),
                ),
                 ),
@@ -143,14 +141,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Padding(
                       padding:  EdgeInsets.only(left: Width/6),
-                      child: Text("Don't you have an account?",style: TextStyle(fontSize: Height/40, color: Color(0xff080808)),),
+                      child: Text("Don't you have an account?",style: TextStyle(fontSize: Height/40, color: const Color(0xff080808)),),
                   ),
                     TextButton(
                       onPressed: (){
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) =>  RegisterScreen()));
+                            MaterialPageRoute(builder: (context) =>  const RegisterScreen()));
                       },
-                      child: Text("Signup", style: TextStyle(fontSize: Height/40, color: Color(0xffffffff)),),
+                      child: Text("Signup", style: TextStyle(fontSize: Height/40, color: const Color(0xffffffff)),),
                     )
                   ],
                 )
@@ -169,7 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
       {
         Fluttertoast.showToast(msg: 'Login Successfully'),
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => Admin()))
+            MaterialPageRoute(builder: (context) => const Admin()))
       }).catchError((e) {
         Fluttertoast.showToast(msg: e);
       });

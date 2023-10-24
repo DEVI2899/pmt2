@@ -1,13 +1,10 @@
 
-
-
 class EmployeeModel{
   String? Empid;
   String? Designation;
   String? empname;
   String? project;
   String? uid;
-
   EmployeeModel({this.empname ,this.Designation, this.project , this.Empid, this.uid});
 
   Map<String,dynamic> toMap(){

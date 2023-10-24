@@ -28,25 +28,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
       body: Container(
         height: Height,
         width: Width,
-        color:Color(0xff6C98FD),
+        color:const Color(0xff6C98FD),
         child:SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
                 padding: EdgeInsets.only(top: Height/25),
-                child: Image(image: AssetImage('assets/images/Register.png',),height: Height/3.5,width: Width/1.1,),
+                child: Image(image: const AssetImage('assets/images/Register.png',),height: Height/3.5,width: Width/1.1,),
               ),
               Text('Register',style: TextStyle(
-                fontSize: Height/22,fontWeight: FontWeight.w500,color: Color(0xff080808)),),
+                fontSize: Height/22,fontWeight: FontWeight.w500,color: const Color(0xff080808)),),
               Text('Create your Account',style: TextStyle(
-                  fontSize: Height/40,fontWeight: FontWeight.normal,color: Color(0xff1643f7)),),
+                  fontSize: Height/40,fontWeight: FontWeight.normal,color: const Color(0xff1643f7)),),
               SizedBox(height: Height/60,),
               Padding(
                 padding: EdgeInsets.only(right: Width/1.6),
-                child: Text('username', style: TextStyle(fontWeight:FontWeight.normal, color: Color(0xff080808)),),
+                child: const Text('username', style: TextStyle(fontWeight:FontWeight.normal, color: Color(0xff080808)),),
               ),
-
               SizedBox(
                 height: Height/15,width: Width/1.25,
                 child: TextFormField(
@@ -65,7 +64,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               SizedBox(height: Height/70,),
               Padding(
                 padding: EdgeInsets.only(right: Width/1.5),
-                child: Text('email-id', style: TextStyle(fontWeight: FontWeight.normal,color: Color(0xff080808)),),
+                child: const Text('email-id', style: TextStyle(fontWeight: FontWeight.normal,color: Color(0xff080808)),),
               ),
               SizedBox(
                 height: Height/15,width: Width/1.25,
@@ -85,7 +84,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               SizedBox(height: Height/70,),
               Padding(
                 padding:  EdgeInsets.only(right: Width/1.6,),
-                child: Text('password', style: TextStyle(fontWeight: FontWeight.normal,color: Color(0xff080808))),
+                child: const Text('password', style: TextStyle(fontWeight: FontWeight.normal,color: Color(0xff080808))),
               ),
               SizedBox(
                 height: Height/15,width: Width/1.25,
@@ -105,7 +104,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               SizedBox(height: Height/70,),
               Padding(
                 padding: EdgeInsets.only(right: Width/2.1),
-                child: Text('Confirm Password', style: TextStyle(fontWeight: FontWeight.normal,color: Color(0xff080808))),
+                child: const Text('Confirm Password', style: TextStyle(fontWeight: FontWeight.normal,color: Color(0xff080808))),
               ),
               SizedBox(
                 height: Height/15,width: Width/1.25,
@@ -128,7 +127,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: ElevatedButton(
 
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xff1643f7),
+                      primary: const Color(0xff1643f7),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(Height/60),
 
@@ -144,14 +143,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children: [
                   Padding(
                     padding:  EdgeInsets.only(left: Width/6),
-                    child: Text("Already have an account?",style: TextStyle(fontSize: Height/42, color: Color(0xff080808)),),
+                    child: Text("Already have an account?",style: TextStyle(fontSize: Height/42, color: const Color(0xff080808)),),
                   ),
                   TextButton(
                     onPressed: (){
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) =>  Homepage()));
+                          MaterialPageRoute(builder: (context) =>  const Homepage()));
                     },
-                    child: Text("Login", style: TextStyle(fontSize: Height/42, color: Color(0xffffffff)),),
+                    child: Text("Login", style: TextStyle(fontSize: Height/42, color: const Color(0xffffffff)),),
                   )
                 ],
               )
@@ -168,7 +167,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         email: Emailcontroller.text, password: Passwordcontroller.text).then((value) {
          Fluttertoast.showToast(msg:'Register Successfully');
         Navigator.push(context,
-          MaterialPageRoute(builder: (context) => LoginScreen()));
+          MaterialPageRoute(builder: (context) => const LoginScreen()));
         }).onError((error ,stacktrace){
       print("Error ${error.toString()}");
 
@@ -202,7 +201,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
          .set(userModel.toMap());
       Fluttertoast.showToast(msg: "Account created successfully");
        Navigator.push(context,
-        MaterialPageRoute(builder: (context) => LoginScreen()));
+        MaterialPageRoute(builder: (context) => const LoginScreen()));
    }
   }
 

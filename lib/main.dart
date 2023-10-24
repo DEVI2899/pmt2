@@ -1,9 +1,9 @@
 
-import 'package:employee_details/Screens/Homepage.dart';
-import 'package:employee_details/Screens/logout.dart';
+import 'package:employee_details/Screens/profile_upload.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+import 'Screens/Homepage.dart';
 import 'csvfileupload.dart';
 
 
@@ -23,10 +23,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home :const Homepage(),
-    // home : const Logout(),
-      home : csvfile(),
-      debugShowCheckedModeBanner: false,
+        home :const Homepage(),
+        // home : const Logout(),
+      // home: const image_upload(),
+      // home : const csvfile(),
+       // home: const profile_upload(),
+        debugShowCheckedModeBanner: false,
     );
   }
 }

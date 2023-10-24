@@ -5,6 +5,8 @@ import 'package:employee_details/Screens/logout.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../Screens/LoginScreen.dart';
+
 class Admin extends StatefulWidget {
   const Admin({Key? key}) : super(key: key);
 
@@ -40,7 +42,6 @@ class _AdminState extends State<Admin> {
     super.initState();
     setState(() {
       Getdetails();
-
     });
   }
   _onSearchChanged(){
@@ -94,18 +95,18 @@ class _AdminState extends State<Admin> {
                       Padding(
                         padding: EdgeInsets.only(left: Width/25, top: Height/25),
                         child: Row(children:[
-                          Text("Hello, ",style: TextStyle(color: const Color(0xff080808), fontSize: Height/30, fontWeight: FontWeight.bold)),
-                          Text("${LoggedinUser.username}",style:  TextStyle(color: const Color(0xff273cf5), fontWeight: FontWeight.normal,fontSize: Height/27,)),
+                          Text("Hello, ",style: TextStyle(color: const Color(0xff080808), fontSize: Height/32, fontWeight: FontWeight.bold)),
+                          Text("${LoggedinUser.username}",style:  TextStyle(color: const Color(0xff273cf5), fontWeight: FontWeight.normal,fontSize: Height/28,)),
                         ]
                         ),
                       ),
                       SizedBox(height: Height/60,),
                       Row(children: [
-                        Text("${LoggedinUser.Empid}",style:  TextStyle(color: const Color(0xff273cf5), fontWeight: FontWeight.normal,fontSize: Height/30,)),
+                        Text("${LoggedinUser.Empid}",style:  TextStyle(color: const Color(0xff273cf5), fontWeight: FontWeight.normal,fontSize: Height/32,)),
                       ],),
                       SizedBox(height: Height/60,),
                       Row(children: [
-                        Text("${LoggedinUser.Role}",style: TextStyle(color: const Color(0xff999999),fontWeight: FontWeight.normal,fontSize: Height/30,)),
+                        Text("${LoggedinUser.Role}",style: TextStyle(color: const Color(0xff999999),fontWeight: FontWeight.normal,fontSize: Height/32,)),
                       ],),
                     ],
                   ),
@@ -113,7 +114,7 @@ class _AdminState extends State<Admin> {
                         padding: EdgeInsets.only(left: Width/2.2),
                         child: Image(height:Height/10,
                             width: Width/5,
-                            image: AssetImage("assets/images/profile.png",)
+                            image: const AssetImage("assets/images/profile.png",)
                         ),
                       )
 
@@ -151,14 +152,14 @@ class _AdminState extends State<Admin> {
                 ),
 
                 child: InkWell(
-                  onTap:() {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Newtrainee()));},
+                  onTap:() {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const Newtrainee()));},
                   child:Card(
                   elevation: Height/50,
-                  color: Color(0xffffffff),
+                  color: const Color(0xffffffff),
                   child: Row(children: [
                     Container(
                       height: Height,width: Width/20,
-                      color: Color(0xff050695),
+                      color: const Color(0xff050695),
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -256,8 +257,9 @@ class _AdminState extends State<Admin> {
   }
 }
 Future<void> LogoutIcon(BuildContext context) async {
+  double height = MediaQuery.of(context).size.height;
+  double width = MediaQuery.of(context).size.width;
   return showDialog(
-
       context: context,
       builder: (context) {
         Future.delayed(const Duration(seconds: 7), () {
@@ -268,10 +270,47 @@ Future<void> LogoutIcon(BuildContext context) async {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
           ),
-          contentPadding: const EdgeInsets.only( left: 40, bottom: 70),
+          contentPadding: EdgeInsets.only( left: width/20, bottom:height/20, right: width/30,  top: height/90),
           title: const Image(image: AssetImage('assets/images/profile.png')),
           content: const Text('Are you Sure want to logout',
             style: TextStyle(color:Color(0xffffffff), fontSize: 25 ),),
+          actions: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+              SizedBox(
+                height: height/20,
+                width: width/3.5,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: const Color(0xffffffff),
+                    elevation: 3,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(height/70)), //////// HERE
+                  ),
+                  onPressed: () => Navigator.pop(context, 'Cancel'),
+                  child: const Text('Cancel' , style: TextStyle(color: Color(0xff273cf5)),),
+                ),
+              ),
+              SizedBox(
+                height: height/20,
+                width: width/3.5,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: const Color(0xff1643f7),
+                    elevation: 3,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(height/70)), //////// HERE
+                  ),
+                  onPressed: () => MaterialPageRoute(builder: (context)=>const LoginScreen()),
+                  child: const Text('Logout' ,style: TextStyle(color: Color(0xffffffff)),
+                  ),
+                ),
+              ),
+                SizedBox(height: height/10,)
+            ],),
+
+          ],
 
 
         );

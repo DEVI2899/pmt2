@@ -39,7 +39,6 @@ class _update_detailsState extends State<update_details> {
     Designationcontroller = TextEditingController();
     ProjectController = TextEditingController();
   }
-
   @override
   Widget build(BuildContext context) {
     // Name = widget.data['Name'];
@@ -383,8 +382,7 @@ class _update_detailsState extends State<update_details> {
 
   Future<void> DeleteUser() async {
     await FirebaseFirestore.instance.collection('newtrainees').doc('project')
-        .collection('project1').
-    doc('uid')
+        .collection('project1').doc('uid')
         .delete();
   }
 //   await FirebaseFirestore.instance.collection('newtrainees').doc('project').collection('project1').doc(widget.data)
